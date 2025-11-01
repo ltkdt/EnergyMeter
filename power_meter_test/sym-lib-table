@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "OLED_SPI")(type "KiCad")(uri "${KIPRJMOD}/OLED_SPI.kicad_sym")(options "")(descr ""))
+)
