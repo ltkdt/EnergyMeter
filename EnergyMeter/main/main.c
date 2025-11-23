@@ -23,15 +23,20 @@ i2c_config_t conf = {
 	.clk_flags = I2C_SCLK_SRC_FLAG_FOR_NOMAL
 };
 
+/*
+ SAMPLING RATE:
+ 1100 * 10^-6 * * 16 = 0.0352(s)
+
+*/
 ina226_config_t ina_config = {
 	.i2c_port = I2C_NUM_0,	/* use i2c port 0 */
 	.i2c_addr = INA226_I2C_ADDR, /* use default i2c address of INA226*/
 	.timeout_ms = 100, /* wait up to 100 ms on writes */
-    .averages = INA226_AVERAGES_16,
-    .bus_conv_time = INA226_BUS_CONV_TIME_1100_US,
-    .shunt_conv_time = INA226_SHUNT_CONV_TIME_1100_US,
-    .mode = INA226_MODE_SHUNT_BUS_CONT,
-	.r_shunt = 0.0005, /* rshunt is 0.5 milli ohms */
+    .averages = INA226_AVERAGES_16,	// average over 16 samples
+    .bus_conv_time = INA226_BUS_CONV_TIME_1100_US, // 1.1ms conversion time
+    .shunt_conv_time = INA226_SHUNT_CONV_TIME_1100_US, // 1.1ms conversion time
+    .mode = INA226_MODE_SHUNT_BUS_CONT,  // Continuous mode 
+	.r_shunt = 0.1, /* rshunt is 0.5 milli ohms */
 	.max_current = 10 /* up to max 10 amps */
 };
 
